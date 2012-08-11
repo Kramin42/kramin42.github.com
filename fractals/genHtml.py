@@ -1,7 +1,6 @@
 
-
-n=7
-startN=7
+n=4
+startN=14
 width=800
 height=600
 
