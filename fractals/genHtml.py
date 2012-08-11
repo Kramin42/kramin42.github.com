@@ -1,8 +1,8 @@
 
-n=4
-startN=14
-width=800
-height=600
+n=2
+startN=18
+width=1024
+height=768
 
 for i in range(0,n):
     filename="fractal"+str(i+startN)+".htm"
