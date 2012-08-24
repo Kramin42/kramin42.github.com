@@ -7,7 +7,7 @@ height=768
 for i in range(0,n):
     filename="fractal"+str(i+startN)+".htm"
     file=open(filename,'w')
-    file.write("<html><head><title>Fractal</title></head><body><img border=\"0\" src=\"fractal"+str(i+startN)+".png\" width=str(width) height=str(height) alt=\"Fractal\" /></body></html>")
+    file.write("<html><head><title>Fractal</title></head><body><img border=\"0\" src=\"fractal"+str(i+startN)+".png\" width="+str(width)+" height="+str(height)+" alt=\"Fractal\" /></body></html>")
     file.close()
 
 print("put this in the Gallery.html file:")

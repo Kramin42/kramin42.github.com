@@ -6,7 +6,7 @@ First use SDL_Fractal.exe to find a nice looking fractal. To zoom in click the p
 If you want to cancel a zoom after clicking but before releasing then drag the mouse to the upper left and release the button; It will only zoom in if the point where you release the mouse is below and to the right of the point where you clicked it.
 If you need to zoom out then press the "z" key and it will zoom out by a factor of 2.
 <br>
-There are several parameters that you can change in the top left. The letters listed in parentheses next to a parameter are the keys you must press to increase or decrease the parameter, respectively. The best way to find out what these do is by changing them and seeing what happens.
+There are several parameters that you can change in the top left. The letters listed in parentheses next to a parameter are the keys you must press to increase or decrease the parameter, respectively. To increase or decrease in larger amounts hold the left Shift key and for smaller amounts hold the left Control key. The best way to find out what these do is by changing them and seeing what happens.
 <h3>Max Iteration</h3>
 This parameter basically changes the detail level of the fractal. Increasing it will make the fractal take longer to draw.
 You will need to increase this as you zoom in (for very zoomed in fractals I use a MI of 10,000).
@@ -25,10 +25,10 @@ To create an image, right click "Render_Fractal.bat" and click "edit". Now delet
 <br>
 Fractal_saver.exe -CX -0.75 -CY 0 -MI 200 -CM 1 -ZM 0.5 -TP 0.4 -DD 1 -DA 0.15 -DB 0.4 -IW 800 -IH 600<br>
 <br>
-Save and close "Render_Fractal.bat" then run it by double clicking it. When the program finishes it will save the image as "fractal.bmp" (overwriting any existing "fractal.bmp" file). You can then open "fractal.bmp" with your favorite image editing program and save it in a compressed image format (I use PNG because it is lossless).
+Save and close "Render_Fractal.bat" then run it by double clicking it. When the program finishes it will save the image as "fractal.bmp" (overwriting any existing "fractal.bmp" file). You can then open "fractal.bmp" with your favorite image editing program and save it in a compressed image format (I use PNG because it is lossless, using JPEG compression results in a smaller file size but there are usually easily visible artifacts).
 <h2>Hints and Other Info</h2>
 You can view a saved fractal by doing a similar thing as described above but with the "View_Fractal.bat" file (don't put in image width and height command-line arguments because the width and height of the viewer are fixed).<br>
-I usually make my images 2 or 4 times larger than what I want my final image to be (e.g. 7680 by 4320 for a 1920 by 1080 image) and use GIMP to reduce the image's size to the size I want. This makes the image look less pixelated.<br>
+I usually make my images 2 or 4 times larger than what I want my final image to be (e.g. 7680 by 4320 for a 1920 by 1080 image) and use GIMP to reduce the image's size to the size I want. This makes the image look smoother and less pixelated.<br>
 <br>
 If you find any bugs or have any questions, email me at kramin42[at]gmail[dot]com.<br>
 <br>
