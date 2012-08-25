@@ -1,0 +1,3 @@
+First you will need Python 3 (www.python.org/getit) and ImageMagick (www.imagemagick.org).
+
+then put the commandline arguments for several images into MultiGenArgs.txt (one on each line, see the included file for an example) and run MultiGen.py. to change the resolution it generates the images at, open MultiGen.py in a text editor and put the desired values in for width and height.
