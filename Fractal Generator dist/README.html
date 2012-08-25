@@ -1,0 +1,78 @@
+<html>
+<body>
+<h1>Fractal Generator Instructions</h1>
+<h2>Finding a fractal</h2>
+First use SDL_Fractal.exe to find a nice looking fractal. To zoom in click the point you want to zoom in on and drag the mouse to the lower right, then release the mouse button.
+If you want to cancel a zoom after clicking but before releasing then drag the mouse to the upper left and release the button; It will only zoom in if the point where you release the mouse is below and to the right of the point where you clicked it.
+If you need to zoom out then press the "z" key and it will zoom out by a factor of 2.
+<br>
+There are several parameters that you can change in the top left. The letters listed in parentheses next to a parameter are the keys you must press to increase or decrease the parameter, respectively. To increase or decrease in larger amounts hold the left Shift key and for smaller amounts hold the left Control key. The best way to find out what these do is by changing them and seeing what happens.
+<h3>Max Iteration</h3>
+This parameter basically changes the detail level of the fractal. Increasing it will make the fractal take longer to draw.
+You will need to increase this as you zoom in (for very zoomed in fractals I use a MI of 10,000).
+<h3>Colour Multiplier</h3>
+This parameter determines the number of times the program cycles through the colour gradient. If it is set to 0 then the entire image will be black, but it can be set to negative values.
+<h3>Transform Power</h3>
+This parameter changes how fast the colours cycle through (from black->red->white->blue->black) as you move away from the edge of the set (the Mandelbrot set is the black area).
+<h3>Distance Divide</h3>
+This feature makes the image fade to black after a specified distance from the set. The Distance Divide parameter can be 0 or 1 (0 means off ans 1 means on). The Distance Divide B parameter specifies at what distance the fade starts and the A parameter specifies the distance at which the fractal becomes completely black. A should be less than B and B should be less than 1.
+<h2>Saving a Fractal</h2>
+Pressing the "x" key will not save an image of the fractal, instead it will append a command-line argument with all the current parameters into the "saves.txt" file. The command-line argument will look like this:<br>
+<br>
+-CX -0.75 -CY 0 -MI 200 -CM 1 -ZM 0.5 -TP 0.4 -DD 1 -DA 0.15 -DB 0.4<br>
+<br>
+To create an image, right click "Render_Fractal.bat" and click "edit". Now delete the line that is already there and replace it with (you can replace the 800 and 600 with any resolution):<br>
+<br>
+Fractal_saver.exe -CX -0.75 -CY 0 -MI 200 -CM 1 -ZM 0.5 -TP 0.4 -DD 1 -DA 0.15 -DB 0.4 -IW 800 -IH 600<br>
+<br>
+Save and close "Render_Fractal.bat" then run it by double clicking it. When the program finishes it will save the image as "fractal.bmp" (overwriting any existing "fractal.bmp" file). You can then open "fractal.bmp" with your favorite image editing program and save it in a compressed image format (I use PNG because it is lossless, using JPEG compression results in a smaller file size but there are usually easily visible artifacts).
+<h2>Hints and Other Info</h2>
+You can view a saved fractal by doing a similar thing as described above but with the "View_Fractal.bat" file (don't put in image width and height command-line arguments because the width and height of the viewer are fixed).<br>
+I usually make my images 2 or 4 times larger than what I want my final image to be (e.g. 7680 by 4320 for a 1920 by 1080 image) and use GIMP to reduce the image's size to the size I want. This makes the image look smoother and less pixelated.<br>
+<br>
+If you find any bugs or have any questions, email me at kramin42[at]gmail[dot]com.<br>
+<br>
+This program is for Windows, but if you want a Mac or Linux version then email me (I kinda want to get it to work on a Mac anyway).<br>
+Also, if you want the source code then feel free to email me (although it's not very organised).
+<h2>Command-Line Arguments</h2>
+Type "int" means it must be an integer value (e.g. 6).<br>
+Type "double" means it must be a decimal value (e.g. 6.5432).<br>
+<pre>
+-IW ###		image width (type int)
+
+-IH ###		image height (type int)
+
+-CX ###		x position of center of screen/image (type double)
+
+-CY ###		y position of center of screen/image (type double)
+
+-MI ###		maximum iteration (type int)
+
+-CM ###		color change multiplier (type int)
+
+-TP ###		transformation power (type double)
+
+-ZM ###		zoom (type double)
+
+-DD #		distance divide (0 or 1) (make brightness fade out further away from the fractal)
+-DA ###		distance divide constant A (double between 0 and 1)   (point where it becomes black)
+-DB ###		distance divide constant B (double between 0 and 1)   (point where it starts fading)</pre>
+<h2>Disclaimer</h2><pre>
+    Fractal Generator
+    Copyright (C) 2012  Cameron Dykstra
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see http://www.gnu.org/licenses/.
+</pre>
+</body>
+</html>
