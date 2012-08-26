@@ -1,6 +1,6 @@
 
-n=2
-startN=18
+n=3
+startN=20
 width=1024
 height=768
 
