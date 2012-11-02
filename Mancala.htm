@@ -1,10 +1,21 @@
 <html>
 <body>
 <P ALIGN=center>
-<applet code="g.class"
-	  archive="./M4nkala.jar"
-        width="1200" height="800">
-</applet></P><br>
+<!--[if !IE]>-->
+    <object classid="java:g.class" 
+            type="application/x-java-applet"
+            archive="./M4nkala.jar" 
+            height="800" width="1200" >
+        <!-- Konqueror browser needs the following param -->
+        <param name="archive" value="./M4nkala.jar" />
+<!--<![endif]-->
+        <object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" height="800" width="1200" > 
+            <param name="code" value="g" />
+		    <param name="archive" value="./M4nkala.jar" />
+        </object> 
+<!--[if !IE]>-->
+    </object>
+<!--<![endif]-->
 <h1>
 Instructions
 </h1>
