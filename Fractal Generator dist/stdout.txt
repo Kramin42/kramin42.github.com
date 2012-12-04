@@ -1,2 +1,29 @@
-argc = 1
-argv[0] = F:\Documents and Settings\Cameron\My Documents\GitHub\kramin42.github.com\Fractal Generator dist\Fractal_viewer.exe
+argc = 19
+argv[0] = Fractal_viewer.exe
+argv[1] = -CX
+argv[2] = -0.7468470326039178
+argv[3] = -CY
+argv[4] = 0.09307168719468861
+argv[5] = -MI
+argv[6] = 5000
+argv[7] = -CM
+argv[8] = 1
+argv[9] = -ZM
+argv[10] = 759484.3657486676
+argv[11] = -TP
+argv[12] = 0.4
+argv[13] = -DD
+argv[14] = 1
+argv[15] = -DA
+argv[16] = 0.3
+argv[17] = -DB
+argv[18] = 0.32
+CX: -0.746847
+CY: 0.0930717
+MI: 5000
+CM: 1
+ZM: 759484
+TP: 0.4
+DD: 1
+DA: 0.3
+DB: 0.32
