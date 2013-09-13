@@ -1,0 +1,11 @@
+
+n=22
+startN=1
+width=800
+height=600
+basename = "fractal"
+
+print("put this in the Gallery.htm file:")
+for i in range(0,n):
+    #print("<div class=\"img\"><a target=\"_blank\" href=\"./fractals/fractal"+str(i+startN)+".htm\"><img src=\"./fractals/fractal"+str(i+startN)+"_small.png\" alt=\"800x600\" width=\"110\" height=\"90\" /></a><div class=\"desc\">size: "+str(width)+"x"+str(height)+"</div></div>")
+    print("<a class=\"img\" href=\"fractals/"+basename+str(i+startN)+".png\" data-lightbox=\"example-1\"><img class=\"img\" src=\"fractals/"+basename+str(i+startN)+"_small.png\" alt=\"thumb-1\" width=\"110\" height=\"90\"/></a>")

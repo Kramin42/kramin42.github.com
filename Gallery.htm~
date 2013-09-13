@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<title>Fractal Gallery</title>
+	<link rel="stylesheet" href="css/lightbox.css" media="screen"/>
+</head>
+<body>
+
+<div class="wrapper">
+
+	<section id="examples" class="section examples-section">
+		<header>
+			<h2 class="section-header">Fractal Gallery</h2>
+		</header>
+		<div class="image-row">
+			<a class="img" href="fractals/desktop1.png" data-lightbox="example-1"><img class="img" src="fractals/desktop1_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/desktop2.png" data-lightbox="example-1"><img class="img" src="fractals/desktop2_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/desktop3.png" data-lightbox="example-1"><img class="img" src="fractals/desktop3_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/desktop4.png" data-lightbox="example-1"><img class="img" src="fractals/desktop4_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/desktop5.png" data-lightbox="example-1"><img class="img" src="fractals/desktop5_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/desktop6.png" data-lightbox="example-1"><img class="img" src="fractals/desktop6_small.png" alt="thumb-1" width="110" height="90"/></a>
+		</div>
+	</section>
+
+	
+
+
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/lightbox-2.6.min.js"></script>
+
+</div>
+
+</body>
+</html>

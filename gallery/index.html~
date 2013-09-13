@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<title>Fractal Gallery</title>
+	<link rel="stylesheet" href="css/lightbox.css" media="screen"/>
+</head>
+<body>
+
+<div class="wrapper">
+
+	<section id="examples" class="section examples-section">
+		<header>
+			<h2 class="section-header">Fractal Gallery</h2>
+		</header>
+		<div class="image-row">
+			<a class="example-image-link" href="img/demopage/desktop1.png" data-lightbox="example-1"><img class="example-image" src="img/demopage/desktop1_small.png" alt="thumb-1" width="110" height="90"/></a>
+			<a class="example-image-link" href="img/demopage/desktop2.png" data-lightbox="example-1"><img class="example-image" src="img/demopage/desktop2_small.png" alt="thumb-1" width="110" height="90"/></a>
+		</div>
+
+		<h3 style="clear: both;">An image set</h3>
+
+		<div class="image-row">
+			<div class="image-set">
+				<a class="example-image-link" href="img/demopage/image-3.jpg" data-lightbox="example-set" title="Click on the right side of the image to move forward."><img class="example-image" src="img/demopage/thumb-3.jpg" alt="Plants: image 1 0f 4 thumb" width="150" height="150"/></a>
+				<a class="example-image-link" href="img/demopage/image-4.jpg" data-lightbox="example-set" title="Or press the right arrow on your keyboard."><img class="example-image" src="img/demopage/thumb-4.jpg" alt="Plants: image 2 0f 4 thumb" width="150" height="150"/></a>
+				<a class="example-image-link" href="img/demopage/image-5.jpg" data-lightbox="example-set" title="The script preloads the next image in the set as you're viewing."><img class="example-image" src="img/demopage/thumb-5.jpg" alt="Plants: image 3 0f 4 thumb" width="150" height="150"/></a>
+				<a class="example-image-link" href="img/demopage/image-6.jpg" data-lightbox="example-set" title="Click anywhere outside the image or the X to the right to close."><img class="example-image" src="img/demopage/thumb-6.jpg" alt="Plants: image 4 0f 4 thumb" width="150" height="150"/></a>
+			</div>
+		</div>
+	</section>
+
+	
+
+
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/lightbox-2.6.min.js"></script>
+
+</div>
+
+</body>
+</html>
