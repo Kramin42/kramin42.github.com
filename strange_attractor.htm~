@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Strange Attractor</title>
+  <script src="processing-1.4.1.min.js"></script>
+  <script type="application/processing" data-processing-target="pjs">
+int w = 400, h = 400;
+float scale = 0.25*h;
+float offx = 0.5*w;
+float offy = 0.5*h;
+int iterations = 10000;
+float x, y, z;
+//float a = 0.9, b = -0.6013, c = 2.0, d = 0.5;
+//float a = 1.3, b = -2.1, c = 2.4, d = -2.1;
+Par a, b, c, d;
+float newx = 0, newy = 0;
+void setup() {
+  size(400,400);
+  background(0);
+  frameRate(60);
+  colorMode(RGB,1.0);
+  a = new Par(random(-2,2),0.0002);
+  b = new Par(random(-2,2),0.0002);
+  c = new Par(random(-2,2),0.0002);
+  d = new Par(random(-2,2),0.0002);
+  x = random(-2,2);
+  y = random(-2,2);
+  z = random(-2,2);
+}
+
+void draw() {
+  fill(0,0,0,0.15);
+  noStroke();
+  rect(0,0,w,h);
+  //stroke(255,255,255,50);
+  strokeWeight(1);
+  for (int i=0; i<iterations; i++) {
+    //tinkerbell
+    //newx = x*x - y*y + a.p*x + b.p*y;
+    //newy = 2*x*y + c.p*x + d.p*y;
+    
+    newx = sin(a.sinp*y) - cos(b.sinp*x);
+    newy = sin(c.sinp*x) - cos(d.sinp*y);
+    
+    //king's dream
+    //newx = sin(b.p*y) + c.p*sin(b.p*x);
+    //newy = sin(a.p*x) + d.p*sin(a.p*y);
+    
+    //Pickover
+    //newx = sin(a.p*y) - z*cos(b.p*x);
+    //newy = z*sin(c.p*x) - cos(d.p*y);
+    z = sin(x);
+    
+    x = newx;
+    y = newy;
+    
+    stroke((z+1.0)/2,0.5,(1.0-z)/2,0.2);
+    //stroke(0.0,1.0,1.0,0.2);
+    point(x*scale+offx, y*scale+offy);
+  }
+  a.update();
+  b.update();
+  c.update();
+  d.update();
+  //print(a.sinp+","+b.sinp+","+c.sinp+","+d.sinp+"\n");
+  //strokeWeight(2);
+  //stroke(255,0,0,255);
+  //point(a.p*100+w/2,b.p*100+h/2);
+  //point(c.p*100+w/2,d.p*100+h/2);
+}
+
+class Par {
+  float p, v, a;
+  //float maxp = 10;
+  float maxv;
+  float sinp;
+  Par (float value, float acc) {
+    p = value;
+    a = acc;
+    v = 0;
+    maxv = 0.005;
+    sinp = 2*sin(p);
+  }
+  
+  void update(){
+    v+=random(-a,a);
+    if (v>maxv) v=maxv;
+    if (v<-maxv) v = -maxv;
+    //if (p>maxp) v -= a;
+    //if (p<-maxp) v += a;
+    p+=v;
+    sinp = 2*sin(p);
+  }
+}
+
+</script>
+</head>
+<body>
+  <h1>A "Strange Attractor"</h1>
+  <p>Created with <a href= http://processingjs.org/>Processing.js</a></p>
+  <canvas id="pjs"></canvas>
+</body>
+</html>

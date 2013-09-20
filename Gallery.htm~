@@ -13,13 +13,39 @@
 		<header>
 			<h2 class="section-header">Fractal Gallery</h2>
 		</header>
+		<h3>1920x1080 Images</h3>
 		<div class="image-row">
-			<a class="img" href="fractals/desktop1.png" data-lightbox="example-1"><img class="img" src="fractals/desktop1_small.png" alt="thumb-1" width="110" height="90"/></a>
+			<a class="img" href="fractals/desktop1.png" data-lightbox="example-1"><img class="img" src="fractals/desktop1_small.png" alt="alt" width="110" height="90"/></a>
 <a class="img" href="fractals/desktop2.png" data-lightbox="example-1"><img class="img" src="fractals/desktop2_small.png" alt="thumb-1" width="110" height="90"/></a>
 <a class="img" href="fractals/desktop3.png" data-lightbox="example-1"><img class="img" src="fractals/desktop3_small.png" alt="thumb-1" width="110" height="90"/></a>
 <a class="img" href="fractals/desktop4.png" data-lightbox="example-1"><img class="img" src="fractals/desktop4_small.png" alt="thumb-1" width="110" height="90"/></a>
 <a class="img" href="fractals/desktop5.png" data-lightbox="example-1"><img class="img" src="fractals/desktop5_small.png" alt="thumb-1" width="110" height="90"/></a>
 <a class="img" href="fractals/desktop6.png" data-lightbox="example-1"><img class="img" src="fractals/desktop6_small.png" alt="thumb-1" width="110" height="90"/></a>
+		</div>
+		<h3>800x600 Images</h3>
+		<div class="image-row">
+		<a class="img" href="fractals/fractal1.png" data-lightbox="example-1"><img class="img" src="fractals/fractal1_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal2.png" data-lightbox="example-1"><img class="img" src="fractals/fractal2_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal3.png" data-lightbox="example-1"><img class="img" src="fractals/fractal3_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal4.png" data-lightbox="example-1"><img class="img" src="fractals/fractal4_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal5.png" data-lightbox="example-1"><img class="img" src="fractals/fractal5_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal6.png" data-lightbox="example-1"><img class="img" src="fractals/fractal6_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal7.png" data-lightbox="example-1"><img class="img" src="fractals/fractal7_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal8.png" data-lightbox="example-1"><img class="img" src="fractals/fractal8_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal9.png" data-lightbox="example-1"><img class="img" src="fractals/fractal9_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal10.png" data-lightbox="example-1"><img class="img" src="fractals/fractal10_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal11.png" data-lightbox="example-1"><img class="img" src="fractals/fractal11_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal12.png" data-lightbox="example-1"><img class="img" src="fractals/fractal12_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal13.png" data-lightbox="example-1"><img class="img" src="fractals/fractal13_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal14.png" data-lightbox="example-1"><img class="img" src="fractals/fractal14_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal15.png" data-lightbox="example-1"><img class="img" src="fractals/fractal15_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal16.png" data-lightbox="example-1"><img class="img" src="fractals/fractal16_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal17.png" data-lightbox="example-1"><img class="img" src="fractals/fractal17_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal18.png" data-lightbox="example-1"><img class="img" src="fractals/fractal18_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal19.png" data-lightbox="example-1"><img class="img" src="fractals/fractal19_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal20.png" data-lightbox="example-1"><img class="img" src="fractals/fractal20_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal21.png" data-lightbox="example-1"><img class="img" src="fractals/fractal21_small.png" alt="thumb-1" width="110" height="90"/></a>
+<a class="img" href="fractals/fractal22.png" data-lightbox="example-1"><img class="img" src="fractals/fractal22_small.png" alt="thumb-1" width="110" height="90"/></a>
 		</div>
 	</section>
 
