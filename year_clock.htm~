@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<body bgcolor="#101010">
+<body bgcolor="#000000">
 <head>
   <title>Year Clock</title>
   <script src="processing-1.4.1.min.js"></script>

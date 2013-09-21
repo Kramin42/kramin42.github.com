@@ -41,10 +41,10 @@ void draw(){
   clr = atan2(newy-h/2,newx-w/2);
   setHSVA(clr,1.0,1.0,1.0);
   sline(x,y,newx,newy);
-  fill(1.0,1.0,1.0,0.4);
-  text(monthNames[month()-1],0.5*(x+newx),0.5*(y+newy)+50.0+10.0);
+  fill(1.0,1.0,1.0,0.5);
+  text(monthNames[month()-1],0.5*(x+newx),h-10.0);
   fill(1.0,1.0,1.0,0.1);
-  sline(0.5*(x+newx),0.5*(y+newy)+50.0,0.5*(x+newx),0.5*(y+newy));
+  sline(0.5*(x+newx),h-15.0,0.5*(x+newx),0.5*(y+newy));
   x = newx; y = newy;
   //day
   newx = x + 80*sin(2*PI*days/daysInMonth[month()]);
@@ -52,10 +52,10 @@ void draw(){
   clr = atan2(newy-h/2,newx-w/2);
   setHSVA(clr,1.0,1.0,1.0);
   sline(x,y,newx,newy);
-  fill(1.0,1.0,1.0,0.4);
-  text(""+day(),0.5*(x+newx),0.5*(y+newy)+80.0+10.0);
+  fill(1.0,1.0,1.0,0.5);
+  text(""+day(),0.5*(x+newx),h-20.0);
   fill(1.0,1.0,1.0,0.1);
-  sline(0.5*(x+newx),0.5*(y+newy)+80.0,0.5*(x+newx),0.5*(y+newy));
+  sline(0.5*(x+newx),h-25.0,0.5*(x+newx),0.5*(y+newy));
   x = newx; y = newy;
   //hour
   newx = x + 100*sin(PI*hours/12.0);
@@ -63,10 +63,10 @@ void draw(){
   clr = atan2(newy-h/2,newx-w/2);
   setHSVA(clr,1.0,1.0,1.0);
   sline(x,y,newx,newy);
-  fill(1.0,1.0,1.0,0.4);
-  text(""+hour(),0.5*(x+newx),0.5*(y+newy)+100.0+10.0);
+  fill(1.0,1.0,1.0,0.5);
+  text(""+hour(),0.5*(x+newx),h-30.0);
   fill(1.0,1.0,1.0,0.1);
-  sline(0.5*(x+newx),0.5*(y+newy)+100.0,0.5*(x+newx),0.5*(y+newy));
+  sline(0.5*(x+newx),h-35.0,0.5*(x+newx),0.5*(y+newy));
   x = newx; y = newy;
   //minute
   newx = x + 80*sin(PI*minutes/30.0);
@@ -74,10 +74,10 @@ void draw(){
   clr = atan2(newy-h/2,newx-w/2);
   setHSVA(clr,1.0,1.0,1.0);
   sline(x,y,newx,newy);
-  fill(1.0,1.0,1.0,0.4);
-  text(""+minute(),0.5*(x+newx),0.5*(y+newy)+80.0+10.0);
+  fill(1.0,1.0,1.0,0.5);
+  text(""+minute(),0.5*(x+newx),h-40.0);
   fill(1.0,1.0,1.0,0.1);
-  sline(0.5*(x+newx),0.5*(y+newy)+80.0,0.5*(x+newx),0.5*(y+newy));
+  sline(0.5*(x+newx),h-45.0,0.5*(x+newx),0.5*(y+newy));
   x = newx; y = newy;
   //second
   newx = x + 50*sin(PI*seconds/30.0);
@@ -85,10 +85,10 @@ void draw(){
   clr = atan2(newy-h/2,newx-w/2);
   setHSVA(clr,1.0,1.0,1.0);
   sline(x,y,newx,newy);
-  fill(1.0,1.0,1.0,0.4);
-  text(""+second(),0.5*(x+newx),0.5*(y+newy)+50.0+10.0);
+  fill(1.0,1.0,1.0,0.5);
+  text(""+second(),0.5*(x+newx),h-50.0);
   fill(1.0,1.0,1.0,0.1);
-  sline(0.5*(x+newx),0.5*(y+newy)+50.0,0.5*(x+newx),0.5*(y+newy));
+  sline(0.5*(x+newx),h-55.0,0.5*(x+newx),0.5*(y+newy));
 }
 
 void sline(float x0, float y0, float x1, float y1) {
