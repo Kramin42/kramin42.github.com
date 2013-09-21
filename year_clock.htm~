@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#101010">
+<head>
+  <title>Year Clock</title>
+  <script src="processing-1.4.1.min.js"></script>
+  <script type="application/processing" data-processing-target="pjs">
+float seconds, minutes, hours, days, months;
+int w = 800, h = 800;
+int lastSecond, frame;
+float x, y, newx, newy;
+int[] daysInMonth = {31,28,31,30,31,30,31,31,30,31,30,31};
+String[] monthNames = {"JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"};
+float clr;
+void setup(){
+  size(800,800);
+  background(0);
+  colorMode(RGB,1.0);
+  textAlign(CENTER);
+  frameRate(16);
+}
+
+void draw(){
+  fill(0.0,0.0,0.0,1.0);
+  rect(0,0,w,h);
+  frame++;
+  if (second() > lastSecond || (lastSecond == 59 && second() == 0)){
+    frame = 0;
+    lastSecond = second();
+  }
+  //println(frame);
+  seconds = second() + frame/16.0;
+  minutes = minute() + seconds/60.0;
+  hours = hour() + minutes/60.0;
+  days = day() + hours/24.0;
+  months = month() + days/daysInMonth[month()];
+  x = w/2; y = h/2;
+  //month
+  newx = x + 50*sin(PI*months/6.0);
+  newy = y - 50*cos(PI*months/6.0);
+  clr = atan2(newy-h/2,newx-w/2);
+  setHSVA(clr,1.0,1.0,1.0);
+  sline(x,y,newx,newy);
+  fill(1.0,1.0,1.0,0.4);
+  text(monthNames[month()-1],0.5*(x+newx),0.5*(y+newy)+50.0+10.0);
+  fill(1.0,1.0,1.0,0.1);
+  sline(0.5*(x+newx),0.5*(y+newy)+50.0,0.5*(x+newx),0.5*(y+newy));
+  x = newx; y = newy;
+  //day
+  newx = x + 80*sin(2*PI*days/daysInMonth[month()]);
+  newy = y - 80*cos(2*PI*days/daysInMonth[month()]);
+  clr = atan2(newy-h/2,newx-w/2);
+  setHSVA(clr,1.0,1.0,1.0);
+  sline(x,y,newx,newy);
+  fill(1.0,1.0,1.0,0.4);
+  text(""+day(),0.5*(x+newx),0.5*(y+newy)+80.0+10.0);
+  fill(1.0,1.0,1.0,0.1);
+  sline(0.5*(x+newx),0.5*(y+newy)+80.0,0.5*(x+newx),0.5*(y+newy));
+  x = newx; y = newy;
+  //hour
+  newx = x + 100*sin(PI*hours/12.0);
+  newy = y - 100*cos(PI*hours/12.0);
+  clr = atan2(newy-h/2,newx-w/2);
+  setHSVA(clr,1.0,1.0,1.0);
+  sline(x,y,newx,newy);
+  fill(1.0,1.0,1.0,0.4);
+  text(""+hour(),0.5*(x+newx),0.5*(y+newy)+100.0+10.0);
+  fill(1.0,1.0,1.0,0.1);
+  sline(0.5*(x+newx),0.5*(y+newy)+100.0,0.5*(x+newx),0.5*(y+newy));
+  x = newx; y = newy;
+  //minute
+  newx = x + 80*sin(PI*minutes/30.0);
+  newy = y - 80*cos(PI*minutes/30.0);
+  clr = atan2(newy-h/2,newx-w/2);
+  setHSVA(clr,1.0,1.0,1.0);
+  sline(x,y,newx,newy);
+  fill(1.0,1.0,1.0,0.4);
+  text(""+minute(),0.5*(x+newx),0.5*(y+newy)+80.0+10.0);
+  fill(1.0,1.0,1.0,0.1);
+  sline(0.5*(x+newx),0.5*(y+newy)+80.0,0.5*(x+newx),0.5*(y+newy));
+  x = newx; y = newy;
+  //second
+  newx = x + 50*sin(PI*seconds/30.0);
+  newy = y - 50*cos(PI*seconds/30.0);
+  clr = atan2(newy-h/2,newx-w/2);
+  setHSVA(clr,1.0,1.0,1.0);
+  sline(x,y,newx,newy);
+  fill(1.0,1.0,1.0,0.4);
+  text(""+second(),0.5*(x+newx),0.5*(y+newy)+50.0+10.0);
+  fill(1.0,1.0,1.0,0.1);
+  sline(0.5*(x+newx),0.5*(y+newy)+50.0,0.5*(x+newx),0.5*(y+newy));
+}
+
+void sline(float x0, float y0, float x1, float y1) {
+  noStroke();
+  pushMatrix();
+  translate(x0+0.5, y0+0.5);
+  rotate(atan2(y1-y0, x1-x0));
+  rect(-0.5, -0.5, dist(x0, y0, x1, y1)+0.0, 1.0);
+  ellipse(0.0,0.0,4.0,4.0);
+  popMatrix();
+}
+
+void setHSVA(float H, float S, float V, float A){
+  //println("H: "+H+", S: "+S+", V: "+V);
+  float C = V*S;
+  float Hd = 3*(H+PI)/(PI);
+  float X = C*(1-abs(Hd%2 - 1));
+  float R,G,B;
+  if (Hd<1.0){R = C; G = X; B = 0.0;}
+  else if (Hd<2.0){R = X; G = C; B = 0.0;}
+  else if (Hd<3.0){R = 0.0; G = C; B = X;}
+  else if (Hd<4.0){R = 0.0; G = X; B = C;}
+  else if (Hd<5.0){R = X; G = 0.0; B = C;}
+  else {R = C; G = 0.0; B = X;}
+  //println("R: "+R+", G: "+G+", B: "+B);
+  fill(R,G,B,A);
+}
+</script>
+</head>
+<body>
+  <table width="100%" height="100%" align="center" valign="center">
+   <tr><td>
+		<P ALIGN=center>
+		  <canvas id="pjs"></canvas>
+		</P>
+   </td></tr>
+   </table>
+</body>
+</html>
