@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gun Recoil</title>
+  <script src="http://cloud.github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script>
+  <script type="application/processing" data-processing-target="pjs">
+//Processing code
+int w=400, h=400;
+float x, v, k, d;
+
+void setup(){
+  size(400,400);
+  background(0);
+  colorMode(RGB,1.0);
+  x = 0.0;
+  v = 0.0;
+  k = 0.03;//spring constant
+  d = 0.7; //damping factor
+}
+
+
+void draw(){
+  fill(0,0,0,1);
+  noStroke();
+  rect(0,0,w,h);
+  strokeWeight(2);
+  x+=v;
+  v+=-k*x;
+  v*=d;
+  stroke(1,1,1,1);
+  point(w/2+x,50);
+  float angle = -x*0.005;//angleFactor = 0.005
+  float move = -x*0.5;//moveFactor = 0.5
+  int gunLength = 100;
+  line(100+move,h/2,100+move+gunLength*cos(angle),h/2+gunLength*sin(angle));
+}
+
+void mousePressed(){
+  v+=10.0; //gunPower = 10
+}
+//End of code
+
+</script>
+</head>
+<body bgcolor="#202020">
+  <table width="100%" height="100%" align="center" valign="center">
+   <tr><td>
+		<P ALIGN=center>
+		  <canvas id="pjs"></canvas>
+		</P>
+   </td></tr>
+   </table>
+</body>
+</html>
