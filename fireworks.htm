@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#101010">
+<head>
+  <title>Fireworks</title>
+  <script src="processing-1.4.1.min.js"></script>
+  <script type="application/processing" data-processing-target="pjs">
+int w=1024,h=768;
+float gravity = 0.01;
+ArrayList<Firework> fworks;
+int counter = 0;
+void setup(){
+  size(1024,768);
+  frameRate(60);
+  background(0);
+  colorMode(RGB,1.0);
+  fworks = new ArrayList<Firework>();
+  //for (int i=0; i<10; i++){
+  //  Firework f = new Firework(random(200,600),600,random(-1.0,1.0),random(-4.0,-1.0), 1);
+  //  fworks.add(f);
+  //}
+}
+
+void draw(){
+  if (frameCount%10==0){
+    if (counter > 100){
+      Firework fadd = new Firework(random(200,w-200),h,random(-1.0,1.0),random(-5.0,-2.0), 3);
+      fworks.add(fadd);
+      counter -= 100;
+    }
+  }
+  if (frameCount%(int)random(50,200)==0){
+    counter+=random(0,600);
+  }
+  fill(0,0,0,0.1);
+  noStroke();
+  rect(0,0,w,h);
+  for (int i=0; i<fworks.size(); i++){
+    Firework f = fworks.get(i);
+    f.update();
+    f.draw();
+  }
+  for (int i=0; i<fworks.size(); i++){
+    Firework f = fworks.get(i);
+    if (f.isDead()){
+      if (f.size>0){
+        int num = (int) random(f.spawn/2,f.spawn);
+        for (int j=0; j<num; j++){
+          Firework fnew = new Firework(f.x,f.y,0.3*f.vx+random(-1.0,1.0),0.3*f.vy+random(-1.0,1.0),f.size-1);
+          if (f.size > 2){
+            fnew.vx = f.vx+random(-0.5,0.5);
+            fnew.vy = f.vy+random(-0.5,0.5);
+          }
+          fnew.r = f.r;
+          fnew.g = f.g;
+          fnew.b = f.b;
+          fnew.spawn = f.spawn*2;
+          fworks.add(fnew);
+        }
+      }
+      fworks.remove(i);
+      i--;
+    }
+  }
+}
+
+void mousePressed(){
+  for (int i=0; i<1; i++){
+    Firework f = new Firework(random(200,w-200),h,random(-1.0,1.0),random(-5.0,-2.0), 3);
+    fworks.add(f);
+  }
+}
+
+class Firework {
+  float x, y, vx, vy;
+  int size;
+  int life;
+  int spawn;
+  float r, g, b;
+  Firework(float _x, float _y, float _vx, float _vy, int _size){
+    x = _x;
+    y = _y;
+    vx = _vx;
+    vy = _vy;
+    size = _size;
+    life = 50*size+60;
+    spawn = max(4,(int)(40/pow(2,size)));
+    do{
+      r = random(0.0,1.0);
+      g = random(0.0,1.0);
+      b = random(0.0,1.0);
+    } while (r*r+g*g+b*b < 1.0);
+  }
+  
+  void update(){
+    x+= vx;
+    y+= vy;
+    vy+= gravity;
+    life--;
+  }
+  
+  void draw(){
+    //stroke(r,g,b,life/100.0);
+    fill(r,g,b,life/100.0);
+    //strokeWeight(size+1);
+    sline(x,y,x+vx,y+vy,size+1);
+  }
+  
+  boolean isDead(){
+    return ((life <= 100 && size>0) || life<=0 || x<0 || x>w || y<0 || y>h);
+  }
+}
+
+void sline(float x0, float y0, float x1, float y1, float size) {
+  noStroke();
+  pushMatrix();
+  translate(x0+0.5, y0+0.5);
+  rotate(atan2(y1-y0, x1-x0));
+  rect(-0.5, -0.5-size/2, dist(x0, y0, x1, y1)+0.0, 1.0+size/2);
+  popMatrix();
+}
+</script>
+</head>
+<body>
+  <table width="100%" height="100%" align="center" valign="center">
+   <tr><td>
+		<P ALIGN=center>
+		  <canvas id="pjs"></canvas>
+		</P>
+   </td></tr>
+   </table>
+</body>
+</html>
