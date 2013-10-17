@@ -1,15 +1,11 @@
 
-n=3
-startN=20
-width=1024
-height=768
+n=0
+startN=8
+width=1920
+height=1080
+basename = "desktop"
 
+print("put this in the Gallery.htm file:")
 for i in range(0,n):
-    filename="fractal"+str(i+startN)+".htm"
-    file=open(filename,'w')
-    file.write("<html><head><title>Fractal</title></head><body><img border=\"0\" src=\"fractal"+str(i+startN)+".png\" width="+str(width)+" height="+str(height)+" alt=\"Fractal\" /></body></html>")
-    file.close()
-
-print("put this in the Gallery.html file:")
-for i in range(0,n):
-    print("<div class=\"img\"><a target=\"_blank\" href=\"./fractals/fractal"+str(i+startN)+".htm\"><img src=\"./fractals/fractal"+str(i+startN)+"_small.png\" alt=\"800x600\" width=\"110\" height=\"90\" /></a><div class=\"desc\">size: "+str(width)+"x"+str(height)+"</div></div>")
+    #print("<div class=\"img\"><a target=\"_blank\" href=\"./fractals/fractal"+str(i+startN)+".htm\"><img src=\"./fractals/fractal"+str(i+startN)+"_small.png\" alt=\"800x600\" width=\"110\" height=\"90\" /></a><div class=\"desc\">size: "+str(width)+"x"+str(height)+"</div></div>")
+    print("<a class=\"img\" href=\"fractals/"+basename+str(i+startN)+".png\" data-lightbox=\"example-1\"><img class=\"img\" src=\"fractals/"+basename+str(i+startN)+"_small.png\" alt=\"thumb-1\" width=\"110\" height=\"90\"/></a>")

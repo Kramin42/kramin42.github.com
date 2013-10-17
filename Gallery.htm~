@@ -15,7 +15,7 @@
 		</header>
 		<h3>1920x1080 Images</h3>
 		<div class="image-row">
-			<a class="img" href="fractals/desktop1.png" data-lightbox="example-1"><img class="img" src="fractals/desktop1_small.png" alt="alt" width="110" height="90"/></a>
+			<a class="img" href="fractals/desktop1.png" data-lightbox="example-1"><img class="img" src="fractals/desktop1_small.png" alt="thumb-1" width="110" height="90"/></a>
 <a class="img" href="fractals/desktop2.png" data-lightbox="example-1"><img class="img" src="fractals/desktop2_small.png" alt="thumb-1" width="110" height="90"/></a>
 <a class="img" href="fractals/desktop3.png" data-lightbox="example-1"><img class="img" src="fractals/desktop3_small.png" alt="thumb-1" width="110" height="90"/></a>
 <a class="img" href="fractals/desktop4.png" data-lightbox="example-1"><img class="img" src="fractals/desktop4_small.png" alt="thumb-1" width="110" height="90"/></a>

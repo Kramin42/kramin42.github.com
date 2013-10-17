@@ -1,9 +1,9 @@
 
-n=22
-startN=1
-width=800
-height=600
-basename = "fractal"
+n=1
+startN=8
+width=1920
+height=1080
+basename = "desktop"
 
 print("put this in the Gallery.htm file:")
 for i in range(0,n):
