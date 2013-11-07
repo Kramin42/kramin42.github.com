@@ -9,9 +9,6 @@ double x = 0.0, y = 0.5;
 double px[] = {0.0,0.5,1.0};
 double py[] = {0.933,0.067,0.933};
 float r = 1.0, g = 1.0, b = 1.0;
-float[][] R = new float[w][h];
-float[][] G = new float[w][h];
-float[][] B = new float[w][h];
 void setup(){
   size(600,600);
   frameRate(60);
@@ -23,9 +20,6 @@ void setup(){
 }
 
 void draw(){
-  R = new float[w][h];
-  G = new float[w][h];
-  B = new float[w][h];
   rect(-1,-1,w+1,h+1);
   for (int n=0; n<10000; n++){
     r = 0.3*(float)(x*y)     + 0.7*r;

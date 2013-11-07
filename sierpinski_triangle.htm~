@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Year Clock</title>
+  <title>Sierpinski Triangle</title>
   <script src="processing-1.4.1.min.js"></script>
   <script type="application/processing" data-processing-target="pjs">
 int w = 600, h = 600;
