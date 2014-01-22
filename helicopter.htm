@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Helicopter</title>
+  <script src="http://cloud.github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script>
+  <script type="application/processing" data-processing-target="pjs">
+//Processing code
+int w=400, h=400;
+float ax, avx, ay, avy, ak, ad;
+boolean left, right, up, down;
+float px = w/2, py = h/2, pvx = 0.0, pvy = 0.0, pd = 0.9;
+void setup(){
+  size(400,400);
+  background(0);
+  colorMode(RGB,1.0);
+  ax = 0.0;
+  ay = 0.0;
+  avx = 0.0;
+  avy = 0.0;
+  ak = 0.03;//spring constant
+  ad = 0.7; //damping factor
+}
+
+
+void draw(){
+  fill(0,0,0,1);
+  noStroke();
+  rect(0,0,w,h);
+  strokeWeight(2);
+  ax+=avx;
+  ay+=avy;
+  px+=pvx;
+  py+=pvy;
+  if (left) {
+    pvx+=0.05*ax;
+    avx-=0.5;
+  }
+  if (right) {
+    pvx+=0.05*ax;
+    avx+=0.5;
+  }
+  if (up) {
+    pvy+=0.05*ay;
+    avy-=0.5;
+  }
+  if (down) {
+    pvy+=0.05*ay;
+    avy+=0.5;
+  }
+  pvx*=pd;
+  pvy*=pd;
+  avx+=-ak*ax;
+  avx*=ad;
+  avy+=-ak*ay;
+  avy*=ad;
+  stroke(1,1,1,1);
+  float angle = ax*0.008;//angleFactor = 0.005
+  int l = 100;
+  
+  line(px-0.5*l*cos(angle),py-0.5*l*sin(angle),px+0.5*l*cos(angle),py+0.5*l*sin(angle));
+  line(px,py,px,py+20);
+  line(50,400-50,50+2*ax,400-50);
+  line(50,400-50,50,400-50+2*ay);
+  noFill();
+  rect(px-40,py+20,80,30);
+}
+
+void keyPressed(){
+  switch (keyCode){
+    case LEFT:
+      left = true;
+      break;
+    case RIGHT:
+      right = true;
+      break;
+    case UP:
+      up = true;
+      break;
+    case DOWN:
+      down = true;
+      break;
+  }
+}
+
+void keyReleased(){
+  switch (keyCode){
+    case LEFT:
+      left = false;
+      break;
+    case RIGHT:
+      right = false;
+      break;
+    case UP:
+      up = false;
+      break;
+    case DOWN:
+      down = false;
+      break;
+  }
+}
+//End of code
+
+</script>
+</head>
+<body bgcolor="#202020">
+  <table width="100%" height="100%" align="center" valign="center">
+   <tr><td>
+		<P ALIGN=center>
+		  <canvas id="pjs"></canvas>
+		</P>
+   </td></tr>
+   </table>
+</body>
+</html>
