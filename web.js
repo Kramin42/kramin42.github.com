@@ -11,7 +11,11 @@ app.use(logfmt.requestLogger());
 
 //app.use(express.compress());
 
-app.use(express.static(__dirname + '/public', { maxAge: oneDay }));
+app.use(express.static(__dirname, { maxAge: oneDay }));
+
+app.get('/', function(req, res) {
+	res.send(fs.readFileSync('./index.htm').toString());
+});
 
 app.get('/fireworktext', function(req, res) {
   //var pathname = url.parse(request.url).pathname;
