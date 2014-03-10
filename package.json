@@ -1,0 +1,20 @@
+{
+  "name": "Website",
+  "version": "0.0.0",
+  "description": "My Website",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "website",
+    "heroku",
+    "nodejs"
+  ],
+  "author": "Cameron Dykstra",
+  "license": "ISC",
+  "dependencies": {
+    "logfmt": "~0.21.0",
+    "express": "~3.4.8"
+  }
+}
