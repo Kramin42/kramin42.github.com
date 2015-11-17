@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hex Game</title>
+    <style>
+    	* { padding: 0; margin: 0; background: #eee;}
+    	canvas { background: #eee; display: block; margin: 0 auto; }
+    	img {
+    	    display:block;
+            margin-left:auto;
+            margin-right:auto;
+    	}
+    	h2, p {
+    	    text-align: center;
+    	}
+    </style>
+</head>
+<body>
+
+<h2>Click a hex to rotate the surrounding hexes around it.</h2>
+<canvas id="myCanvas" width="400" height="400"></canvas>
+
+<p>Try to get it to look like this:</p>
+<img src="example.png" width="200"></img>
+
+<script>
+
+var canvas = document.getElementById("myCanvas");
+canvas.onselectstart = function () { return false; }
+var ctx = canvas.getContext("2d");
+var cos30 = Math.sqrt(3)/2
+var sin30 = 0.5
+
+var h = canvas.getAttribute("height")
+var w = canvas.getAttribute("width")
+
+var hexsize = 30
+var boardsize = 4
+var boardx = 20
+var boardy = 48
+
+var board = [
+ [-1, 1, 1, 1, 1,-1,-1],
+[-1, 3, 1, 1, 1, 1,-1],
+ [ 3, 3, 1, 1, 1, 1,-1],
+[ 3, 3, 3, 4, 2, 2, 2],
+ [ 3, 3, 3, 2, 2, 2,-1],
+[-1, 3, 3, 2, 2, 2,-1],
+ [-1, 3, 2, 2, 2,-1,-1]
+]
+
+// var board = [
+//  [-1, 28, 27, 26, 25,-1,-1],
+// [-1, 29, 13, 12, 11, 24,-1],
+//  [ 30, 14, 4, 3, 10, 23,-1],
+// [ 31, 15, 5, 1, 2, 9, 22],
+//  [ 32, 16, 6, 7, 8, 21,-1],
+// [-1, 33, 17, 18, 19, 20,-1],
+//  [-1, 34, 35, 36, 37,-1,-1]
+// ]
+
+canvas.addEventListener('click', handleClick, false);
+
+function handleClick(event){
+    var x = event.pageX - canvas.offsetLeft
+    var y = event.pageY - canvas.offsetTop
+    var ij = getIJ(x,y)
+    var i = ij[0]
+    var j = ij[1]
+    rotateAbout(i, j)
+    draw()
+}
+
+function drawHex(x, y, side){
+	ctx.beginPath();
+		ctx.moveTo(x-cos30*side,y-sin30*side)
+		ctx.lineTo(x-cos30*side,y+sin30*side)
+		ctx.lineTo(x,y+sin30*side+sin30*side)
+		ctx.lineTo(x+cos30*side,y+sin30*side)
+		ctx.lineTo(x+cos30*side,y-sin30*side)
+		ctx.lineTo(x,y-sin30*side-sin30*side)
+		ctx.lineTo(x-cos30*side,y-sin30*side)
+		ctx.fill()
+		ctx.stroke()
+	ctx.closePath()
+}
+
+function draw() {
+    ctx.clearRect(0, 0, w, h);
+    
+    ctx.strokeStyle = "#000000"
+    ctx.textAlign = "center"
+    ctx.textBaseline="middle"
+    ctx.font="20px Arial"
+    
+    for (var i = 0; i < board.length ; i++) {
+        for (var j = 0; j < board[i].length ; j++) {
+            if (board[i][j]>0) {
+                switch (board[i][j]) {
+                    case 1:
+                    ctx.fillStyle = "#FF0000"
+                        break;
+                    case 2:
+                        ctx.fillStyle = "#00FF00"
+                        break;
+                    case 3:
+                        ctx.fillStyle = "#0000FF"
+                        break;
+                    default:
+                        ctx.fillStyle = "#000000"
+                }
+                
+                var c = getCoords(i,j)
+                drawHex(c[0],c[1],hexsize)
+                //ctx.fillText(board[i][j],c[0],c[1])
+            }
+        }
+    }
+}
+
+function getCoords(i, j){
+    var x = boardx
+    var y = boardy
+    if (i%2==0) {
+        x+= cos30*hexsize
+    }
+    x+= cos30*hexsize
+    y+= sin30*hexsize
+    x+= 2*cos30*hexsize*j
+    y+= (1+sin30)*hexsize*i
+    return [x, y]
+}
+
+function getIJ(x, y){
+    var i = 0
+    var j = 0
+    i = Math.round((y-boardy-sin30*hexsize)/((1+sin30)*hexsize))
+    if (i%2==0) {
+        x-= cos30*hexsize
+    }
+    j = Math.round((x-boardx-cos30*hexsize)/(2*cos30*hexsize))
+    return [i, j]
+}
+
+function getNeighbors(i,j){
+    var parity = 1
+    if (i%2!=0){
+        parity = 0
+    }
+    return [[i-1,j-1+parity],[i-1,j+parity],[i,j+1],[i+1,j+parity],[i+1,j-1+parity],[i,j-1]]
+}
+
+function rotateAbout(i, j){
+    if (i>0 && i<boardsize*2-2 && j>0 && j<boardsize*2-2){
+        var valid = true
+        var neighbors = getNeighbors(i, j)
+        for (var n=0; n<neighbors.length; n++) {
+            ij = neighbors[n]
+            if (board[ij[0]][ij[1]]<0){
+                valid = false
+            }
+        }
+        if (valid){
+            //console.log("rotating about: "+i+", "+j)
+            var oldvals = []
+            for (var n=0; n<neighbors.length; n++) {
+                ij = neighbors[n]
+                console.log(ij)
+                oldvals.push(board[ij[0]][ij[1]])
+            }
+            //console.log(oldvals)
+            oldvals.push(oldvals.shift())
+            //console.log(oldvals)
+            var n = 0
+            for (var n=0; n<neighbors.length; n++) {
+                ij = neighbors[n]
+                board[ij[0]][ij[1]] = oldvals.shift()
+            }
+        }
+    }
+}
+
+for (var n=0; n<10000; n++){
+    rotateAbout(Math.round((boardsize-1)*2*Math.random()),Math.round((boardsize-1)*2*Math.random()))
+}
+
+draw()
+
+</script>
+
+</body>
+</html>
